@@ -13,6 +13,7 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import Wishlists from "./Pages/Wishlists.jsx";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import  { Toaster } from 'react-hot-toast';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +53,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-    <ToastContainer />
+    <Toaster/>
   </React.StrictMode>
 );

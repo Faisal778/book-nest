@@ -63,8 +63,8 @@ const Nav = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn mr-2 bg-green-400">Sign In</a>
-        <a className="btn bg-blue-400">Sign Up</a>
+        <a className="btn mr-2 bg-green-400 hidden md:flex">Sign In</a>
+        <a className="btn bg-blue-400 hidden md:flex">Sign Up</a>
       </div>
     </div>
   );

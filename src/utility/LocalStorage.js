@@ -1,4 +1,6 @@
-import { toast } from "react-toastify";
+
+import toast from "react-hot-toast";
+
 
 const getStoredWishlist = () => {
   const storedWishlist = localStorage.getItem("wishlist");
@@ -14,7 +16,9 @@ const saveWishlist = (book) => {
   if (!exist) {
     storedWishlist.push(book);
     localStorage.setItem("wishlist", JSON.stringify(storedWishlist));
+
   }
+
 };
 
 const getStoredRead = () => {

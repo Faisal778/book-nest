@@ -13,11 +13,11 @@ const Book = () => {
 
   const handleAddToWishlist = () => {
     saveWishlist(book);
-    toast("Book added to wishlist");
+    toast("Added to wishlist Successfully");
   };
   const handleAddtoRead = () => {
     saveRead(book);
-    toast("Book added to Read");
+    toast("Added to Read Successfully");
   };
   return (
     <section className="p-4 lg:p-8  bg-white text-black">
