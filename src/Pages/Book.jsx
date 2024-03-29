@@ -2,14 +2,20 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLoaderData, useParams } from "react-router-dom";
+import { saveWishlist } from "../utility/LocalStorage";
+import Wishlists from "./Wishlists";
+import { saveBook } from "../utility";
 
 const Book = () => {
   const books = useLoaderData();
   const { id } = useParams();
   const book = books.find((book) => book.bookId == id);
 
-  const handleAddToWishlist = () => {
+  const handleAddToWishlist = (book) => {
     toast("Book added to wishlist");
+    saveWishlist(book);
+    // saveBook(book);
+    
   };
   const handleAddtoRead = () => {
     toast("Book added to Read");
@@ -45,7 +51,7 @@ const Book = () => {
               <button onClick={handleAddtoRead} type="button" className="self-start btn btn-primary mr-2">
                 Read
               </button>
-              <button onClick={handleAddToWishlist} type="button" className="self-start btn btn-primary">
+              <button onClick={handleAddToWishlist(book)} type="button" className="self-start btn btn-primary">
                 Wishlist
               </button>
               <ToastContainer />

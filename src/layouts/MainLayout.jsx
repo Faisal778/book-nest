@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import ListedBooks from "../Pages/ListedBooks";
 import PagesToRead from "../Pages/PagesToRead";
 import { Outlet } from "react-router-dom";
+import Wishlists from "../Pages/Wishlists";
 
 const MainLayout = () => {
   return (
@@ -12,6 +13,7 @@ const MainLayout = () => {
         <Nav></Nav>
       </div>
       <Outlet></Outlet>
+
     </div>
   );
 };

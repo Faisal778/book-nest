@@ -9,10 +9,15 @@ import PagesToRead from "./Pages/PagesToRead.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
 import books from "../public/books.json";
 import Book from "./Pages/Book.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
+import Wishlists from "./Pages/Wishlists.jsx";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    // errorElement:<ErrorPage></ErrorPage> ,
     children: [
       {
         index: true,
@@ -31,11 +36,22 @@ const router = createBrowserRouter([
         element: <Book></Book>,
         loader: () => fetch("../books.json"),
       },
+      // {
+      //   path:"/wishlist",
+      //   element: <Wishlist books={books}></Wishlist>
+      // },
+      {
+        path:"/wishlists",
+        element: <Wishlists books = {books}></Wishlists>,
+        loader: () => fetch("../books.json"),
+      },
+      
     ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </React.StrictMode>
 );
