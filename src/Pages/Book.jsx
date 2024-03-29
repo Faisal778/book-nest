@@ -36,12 +36,13 @@ const Book = () => {
               <span className="font-bold">Review: </span>
               {book.review}
             </h3>
+            <p className="font-bold mt-4">Tags: </p>
             <p className="my-6 text-gray-400">
-            {
-  book.tags.map((tag, index) => (
-    <span className="mr-4 text-green-500 bg-gray-100 rounded-3xl p-4 font-semi-bold" key={index}>{tag}</span>
-  ))
-}
+              {book.tags.map((tag, index) => (
+                <span className="mr-4 text-green-500 bg-gray-100 rounded-3xl p-2 font-semi-bold" key={index}>
+                  {tag}
+                </span>
+              ))}
             </p>
 
             <hr />
