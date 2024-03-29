@@ -1,5 +1,6 @@
 import React from 'react';
 import Wishlists from './Wishlists';
+import Read from './Read';
 
 const ListedBooks = () => {
     return (
@@ -11,6 +12,8 @@ const ListedBooks = () => {
                 sort
             </div>
             <Wishlists></Wishlists>
+            <h2 className='text-4xl font-bold text-center'>READ</h2>
+            <Read></Read>
 
 
             

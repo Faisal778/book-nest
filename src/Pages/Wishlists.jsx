@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import BookCard from "../components/BookCard";
-import { getBooks } from "../utility";
 import { getStoredWishlist } from "../utility/LocalStorage";
 
 
@@ -19,9 +18,6 @@ const Wishlists = () => {
             ))
         }
 		
-
-
-
 		</div>
     );
 };

@@ -2,22 +2,21 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLoaderData, useParams } from "react-router-dom";
-import { saveWishlist } from "../utility/LocalStorage";
+import { saveRead, saveWishlist } from "../utility/LocalStorage";
 import Wishlists from "./Wishlists";
-import { saveBook } from "../utility";
+// import { saveBook } from "../utility";
 
 const Book = () => {
   const books = useLoaderData();
   const { id } = useParams();
   const book = books.find((book) => book.bookId == id);
 
-  const handleAddToWishlist = (book) => {
-    toast("Book added to wishlist");
+  const handleAddToWishlist = () => {
     saveWishlist(book);
-    // saveBook(book);
-    
+    toast("Book added to wishlist");
   };
   const handleAddtoRead = () => {
+    saveRead(book);
     toast("Book added to Read");
   };
   return (
@@ -37,7 +36,13 @@ const Book = () => {
               <span className="font-bold">Review: </span>
               {book.review}
             </h3>
-            <p className="my-6 text-gray-400">tags....</p>
+            <p className="my-6 text-gray-400">
+            {
+  book.tags.map((tag, index) => (
+    <span className="mr-4 text-green-500 bg-gray-100 rounded-3xl p-4 font-semi-bold" key={index}>{tag}</span>
+  ))
+}
+            </p>
 
             <hr />
 
@@ -51,7 +56,7 @@ const Book = () => {
               <button onClick={handleAddtoRead} type="button" className="self-start btn btn-primary mr-2">
                 Read
               </button>
-              <button onClick={handleAddToWishlist(book)} type="button" className="self-start btn btn-primary">
+              <button onClick={handleAddToWishlist} type="button" className="self-start btn btn-primary">
                 Wishlist
               </button>
               <ToastContainer />
