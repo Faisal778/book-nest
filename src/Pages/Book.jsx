@@ -1,11 +1,19 @@
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const Book = () => {
   const books = useLoaderData();
   const { id } = useParams();
   const book = books.find((book) => book.bookId == id);
-  console.log(book);
+
+  const handleAddToWishlist = () => {
+    toast("Book added to wishlist");
+  };
+  const handleAddtoRead = () => {
+    toast("Book added to Read");
+  };
   return (
     <section className="p-4 lg:p-8  bg-white text-black">
       <div className="container mx-auto space-y-12">
@@ -34,12 +42,13 @@ const Book = () => {
               <p>Rating: {book.rating}</p>
             </div>
             <div>
-              <button type="button" className="self-start btn btn-primary mr-2">
+              <button onClick={handleAddtoRead} type="button" className="self-start btn btn-primary mr-2">
                 Read
               </button>
-              <button type="button" className="self-start btn btn-primary">
+              <button onClick={handleAddToWishlist} type="button" className="self-start btn btn-primary">
                 Wishlist
               </button>
+              <ToastContainer />
             </div>
           </div>
         </div>
