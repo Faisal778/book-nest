@@ -5,7 +5,7 @@ import BookCard from '../components/BookCard';
 
 const Home = ({books}) => {
     const firstBook = books[0];
-    console.log(firstBook);
+    console.log(books);
 
     return (
         <section className="bg-gray-800 dark:bg-gray-100 text-gray-100 dark:text-gray-800">
@@ -23,7 +23,7 @@ const Home = ({books}) => {
 			
         {
             books.map( book => (
-                <BookCard key= {book.id}></BookCard>
+                <BookCard key= {book.bookId} book = {book}></BookCard>
             ))
         }
 		
