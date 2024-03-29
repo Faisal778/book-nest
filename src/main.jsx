@@ -11,15 +11,21 @@ import MainLayout from "./layouts/MainLayout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>
-  },
-  {
-    path: "/listedbooks",
-    element: <ListedBooks></ListedBooks>
-  },
-  {
-    path:"/pagestoread",
-    element: <PagesToRead></PagesToRead>
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        index: true,
+        element: <Home></Home>,
+      },
+      {
+        path: "/listedbooks",
+        element: <ListedBooks></ListedBooks>,
+      },
+      {
+        path: "/pagestoread",
+        element: <PagesToRead></PagesToRead>,
+      },
+    ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
