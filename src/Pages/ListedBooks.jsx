@@ -24,6 +24,7 @@ const ListedBooks = () => {
           </ul>
         </div>
       </div>
+      <h2 className="text-4xl font-bold text-center mb-10">Wishlist</h2>
       <Wishlists></Wishlists>
       <h2 className="text-4xl font-bold text-center">READ</h2>
       <Read></Read>
